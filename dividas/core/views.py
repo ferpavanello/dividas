@@ -15,4 +15,5 @@ class DividaDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 def home(request):
-    return render(request, 'index.html')
+    dividas = Divida.objects.all()
+    return render(request, 'index.html', dict(dividas=dividas))

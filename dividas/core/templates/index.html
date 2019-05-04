@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,44 @@
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
   </head>
   <body>
-    <h1>Oi</h1>
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h2>
+            Lista de Dívidas
+          </h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <table class="table table-sm table-hover">
+                <thead class="thead-dark">
+                  <th>Cod. Cliente</th>
+                  <th>Motivo</th>
+                  <th>Emissão</th>
+                  <th class="text-right">Valor</th>
+                </thead>
+                <tbody>
+                  {% for div in dividas %}
+                  <tr>
+                    <td data-label="Cod. Cliente">
+                      {{ div.id_cliente.strip }}
+                    </td>
+                    <td data-label="Motivo">{{ div.motivo }}</td>
+                    <td data-label="Emissão">{{ div.data }}</td>
+                    <td data-label="Valor" class="text-right">
+                      R$ {{ div.valor }}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../static/js/axios.min.js"></script>
   </body>
 </html>
