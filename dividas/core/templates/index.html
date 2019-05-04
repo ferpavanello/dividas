@@ -10,15 +10,24 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="card">
+      <div class="card my-3">
         <div class="card-header">
           <h2>
-            Lista de Dívidas
+            Clientes x Dívidas
           </h2>
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col">
+            <div class="col-3">
+              <table class="table table-sm table-hover" id="tbClientes">
+                <thead class="thead-dark">
+                  <th>Id</th>
+                  <th>Nome</th>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="col-9">
               <table class="table table-sm table-hover">
                 <thead class="thead-dark">
                   <th>Cod. Cliente</th>
@@ -37,6 +46,7 @@
                     <td data-label="Valor" class="text-right">
                       R$ {{ div.valor }}
                     </td>
+                    </td>
                   </tr>
                   {% endfor %}
                 </tbody>
@@ -47,6 +57,9 @@
       </div>
     </div>
 
+    <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/axios.min.js"></script>
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/lista-clientes.js"></script>
   </body>
 </html>
