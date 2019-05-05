@@ -1,9 +1,6 @@
 axios
   .get(`https://jsonplaceholder.typicode.com/users`)
   .then(response => {
-    console.log(response.data);
-    //$("#tbClientes").bootstrapTable("load", response.data);
-
     $.each(response.data, function(index, item) {
       let eachrow =
         "<tr>" +

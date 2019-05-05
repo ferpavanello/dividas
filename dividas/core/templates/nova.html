@@ -1,0 +1,62 @@
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Nova</title>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="card my-3">
+        <div class="card-header">
+          <h4 class="card-title">Nova Dívida</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST" action=".">
+            {% csrf_token %}
+            <div class="row">
+              <div class="form-group form-group-sm col-md-6 col-sm-12">
+                <label for="{{ form.id_cliente.id_for_label }}">{{ form.id_cliente.label }}</label>
+                {{ form.id_cliente.errors }}
+                {{ form.id_cliente | add_class:"form-control form-control-sm" }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-group-sm col-md-6 col-sm-12">
+                <label for="{{ form.motivo.id_for_label }}">{{ form.motivo.label }}</label>
+                {{ form.motivo.errors }}
+                {{ form.motivo | add_class:"form-control form-control-sm" }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-group-sm col-md-6 col-sm-12">
+                <label for="{{ form.valor.id_for_label }}">{{ form.valor.label }}</label>
+                {{ form.valor.errors }}
+                {{ form.valor | add_class:"form-control form-control-sm" }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group form-group-sm col-md-6 col-sm-12">
+                <label for="{{ form.data.id_for_label }}">{{ form.data.label }}</label>
+                {{ form.data.errors }}
+                {{ form.data | add_class:"form-control form-control-sm datepicker" }}
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>Salvar</button>
+            <a
+              class="btn btn-danger"
+              href="{% url 'dividas:home' %}"
+              role="button"
+              >Voltar</a
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
