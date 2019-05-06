@@ -7,6 +7,7 @@
     <title>Dívidas</title>
 
     <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   </head>
   <body>
     <div class="container-fluid">
@@ -47,6 +48,7 @@
                   <th>Emissão</th>
                   <th class="text-right">Valor</th>
                   <th class="text-center">Alterar</th>
+                  <th class="text-center">Deletar</th>
                 </thead>
                 <tbody>
                   {% for div in dividas %}
@@ -67,6 +69,14 @@
                         title="Alterar"
                       >
                         <i class="fas fa-edit"></i>
+                      </a>
+                    </td>
+                    <td data-label="Deletar" class="text-center">
+                      <a
+                        href="{% url 'dividas:deletar-divida' div.id %}"
+                        title="Deletar"
+                      >
+                        <i class="fas fa-trash-alt"></i>
                       </a>
                     </td>
                   </tr>
