@@ -17,38 +17,12 @@ class DividaDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 def home(request, id_cliente=None):
-    if id_cliente:
-        dividas = Divida.objects.all().filter(id_cliente=id_cliente).order_by("data")
-    else:
-        dividas = Divida.objects.all().order_by("data")
-
-    return render(request, 'index.html', dict(dividas=dividas))
+    return render(request, 'index.html')
 
 
 def nova(request):
-    print("!!!!!!!!!!!")
-    form = DividaForm(request.POST or None)
-    if request.POST:
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(r('dividas:home'))
-    return render(request, 'nova.html', {'form': form})
+    return render(request, 'nova.html')
 
 
 def alterar(request, id):
-    divida = get_object_or_404(Divida, id=id)
-    form = DividaForm(request.POST or None, instance=divida)
-    print("0")
-    print(request)
-    if request.POST:
-        print("1")
-        if form.is_valid():
-            print("2")
-            form.save()
-            # return HttpResponseRedirect(r('dividas:home'))
-    return render(request, 'nova.html', {'form': form})
-
-
-def deletar(request, id):
-    Divida.objects.filter(id=id).delete()
-    return HttpResponseRedirect(r('dividas:home'))
+    return render(request, 'altera.html')
