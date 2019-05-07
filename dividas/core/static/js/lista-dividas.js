@@ -4,12 +4,12 @@ axios
     $.each(response.data, function(index, item) {
       let eachrow = `<tr>
                       <td data-label="Id">${item.id}</td>
-                      <td data-label="Id CLiente">${item.id_cliente}</td>
+                      <td data-label="Cliente">${item.id_cliente}</td>
                       <td data-label="Motivo">${item.motivo}</td>
                       <td data-label="Data">${item.data}</td>
-                      <td data-label="Valor" class="text-right">${
+                      <td data-label="Valor" class="text-right">${valueFormat(
                         item.valor
-                      }</td>
+                      )}</td>
                       <td data-label="Alterar" class="text-center">
                         <a
                           href="/alterar/${item.id}"
@@ -44,4 +44,11 @@ function deletar(id) {
     .catch(error => {
       console.log(error);
     });
+}
+
+function valueFormat(value) {
+  return parseFloat(value).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
 }

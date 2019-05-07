@@ -1,9 +1,7 @@
 from dividas.core.models import Divida
-from dividas.core.forms import DividaForm
 from dividas.core.serializers import DividaSerializer
 from rest_framework import generics
-from django.shortcuts import render, resolve_url as r, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 
 class DividaList(generics.ListCreateAPIView):
